@@ -1,3 +1,14 @@
 <p>posts-list works!</p>
-
+<p>{{'This is from the parent (app) Component'}}</p>
 {{ usersChild | json }}
+
+<p>This is from the post list component</p>
+{{ postListUsers.users | json }}
+
+<br>
+@for(post of postListPosts; track post){
+    <div>
+        {{post | json}}
+    </div>
+}
+

@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { UserService } from '../services/user.service';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-posts-list',
@@ -10,4 +12,13 @@ import { Component, Input } from '@angular/core';
 })
 export class PostsListComponent {
     @Input() usersChild: any;
+    postListUsers: any;
+    postListPosts: Array<any> = [];
+
+    constructor( private userServiceDI: UserService, private postServiceDI: PostService ) {
+      this.postListUsers = userServiceDI
+      // this.postListPosts = postServiceDI.posts
+      this.postListPosts = postServiceDI.getPost()
+      // this.postListUsers = new UserService();
+    }
 }
