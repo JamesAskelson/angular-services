@@ -21,4 +21,18 @@ export class PostsListComponent {
       this.postListPosts = postServiceDI.getPost()
       // this.postListUsers = new UserService();
     }
-}
+
+    addPost(){
+      let postData = {
+        id: 7,
+        title: 'Post Title 7',
+        post: 'Dummy Post 7'
+      }
+
+      this.postServiceDI.addPost(postData)
+    }
+
+    deletePost(){
+      this.postServiceDI.deletePost()
+    }
+  }
